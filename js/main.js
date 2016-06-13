@@ -29,7 +29,7 @@ var firstItem = firebase.database().ref("items/firstItem");
 $("#signin").click(function () {
   // 登入後的頁面行為
   firebase.auth().signInWithPopup(fbProvider).then(function(result){
-    var userID = firebase.database().ref("users/firstUser").puse({"name":result.user.dispalyName, "id":result.user.uid, "userImg":result.user.photoURL});
+    var userID = firebase.database().ref("users/firstUser").push({"name":result.user.dispalyName, "id":result.user.uid, "userImg":result.user.photoURL});
   }).catch(function(error){
     var errorCode = error.code;
     var errorMessa = error.message;
